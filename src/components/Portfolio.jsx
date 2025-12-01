@@ -4,23 +4,25 @@ import { motion } from 'framer-motion';
 import './Portfolio.css';
 
 const Portfolio = () => {
+  const baseUrl = import.meta.env.BASE_URL;
+  
   const projects = [
     {
       title: 'Financial RAG Analyst',
       description: 'Multi-agent workflow with financial agents using structured function calling. Refactored embedding pipeline to OpenAI text-embedding-3-small.',
-      image: '/images/work-1.jpg',
+      image: `${baseUrl}images/work-1.jpg`,
       link: 'https://github.com/sarthakk-3107/rag_analyst'
     },
     {
       title: 'Inspectify',
       description: 'NYC Restaurant Health Inspector Dashboard. Scalable ETL pipeline in Node.js processing 289K+ CSV rows into MongoDB.',
-      image: '/images/work-2.jpg',
+      image: `${baseUrl}images/work-2.jpg`,
       link: 'https://github.com/roycebarboz/NYC-Restaurant-Health-Inspector-Dashboard'
     },
     {
       title: 'F1 Telemetry Dashboard',
       description: 'End-to-end observability using Datadog APM, RUM, and custom metrics across Flask backend and React frontend.',
-      image: '/images/work-3.jpg',
+      image: `${baseUrl}images/work-3.jpg`,
       link: 'https://github.com/keval-som/f1-vision-dashboard'
     }
   ];

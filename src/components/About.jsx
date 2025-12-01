@@ -27,10 +27,10 @@ const About = () => {
     <section id="about" className="about">
       <div className="container about-container">
         <div className="about-col-1">
-          <img src="/images/potrait.png" alt="Royce Barboz" />
+          <img src={`${import.meta.env.BASE_URL}images/potrait.png`} alt="Royce Barboz" />
         </div>
         <div className="about-col-2">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="sub-title"
@@ -38,14 +38,14 @@ const About = () => {
             About Me
           </motion.h1>
           <p className="about-text">
-            Hi, I'm Royce Barboz, a Master's student in Computer Science at Stevens Institute of Technology. 
-            I specialize in building scalable full-stack applications and AI-driven solutions. 
+            Hi, I'm Royce Barboz, a Master's student in Computer Science at Stevens Institute of Technology.
+            I specialize in building scalable full-stack applications and AI-driven solutions.
             My technical expertise spans across Cloud Computing (AWS, Kubernetes), DevOps (Datadog, Docker), and Generative AI (RAG, Multi-Agent Systems).
           </p>
 
           <div className="tab-titles">
             {Object.keys(tabData).map((tab) => (
-              <p 
+              <p
                 key={tab}
                 className={`tab-links ${activeTab === tab ? 'active-link' : ''}`}
                 onClick={() => setActiveTab(tab)}

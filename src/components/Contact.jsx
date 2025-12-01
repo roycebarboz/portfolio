@@ -14,7 +14,7 @@ const Contact = () => {
             <a href="https://www.linkedin.com/in/royce-barboz/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
             <a href="https://github.com/roycebarboz" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
           </div>
-          <a href="/images/my-cv.pdf" target="_blank" rel="noopener noreferrer" className="btn btn2">View CV</a>
+          <a href={`${import.meta.env.BASE_URL}images/my-cv.pdf`} target="_blank" rel="noopener noreferrer" className="btn btn2">View CV</a>
         </div>
       </div>
     </section>
