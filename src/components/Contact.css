@@ -1,0 +1,93 @@
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+}
+
+.contact-left {
+  flex-basis: 35%;
+}
+
+.contact-right {
+  flex-basis: 60%;
+}
+
+.contact-left p {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.contact-icon {
+  color: var(--accent-color);
+  margin-right: 15px;
+  font-size: 1.2rem;
+}
+
+.social-icons {
+  margin-top: 30px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  font-size: 30px;
+  margin-right: 15px;
+  color: var(--text-secondary);
+  display: inline-block;
+  transition: transform 0.5s;
+}
+
+.social-icons a:hover {
+  color: var(--accent-color);
+  transform: translateY(-5px);
+}
+
+.btn.btn2 {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.contact-right form {
+  width: 100%;
+}
+
+form input, form textarea {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: var(--bg-secondary);
+  padding: 15px;
+  margin: 15px 0;
+  color: var(--text-color);
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-family: inherit;
+}
+
+form input:focus, form textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.success-msg {
+  color: #61b752;
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.error-msg {
+  color: #ff004f;
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .contact-left, .contact-right {
+    flex-basis: 100%;
+  }
+}
+

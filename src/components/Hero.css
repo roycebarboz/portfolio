@@ -1,0 +1,53 @@
+.hero {
+  height: calc(100vh - 80px);
+  /* Subtract navbar height */
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-color);
+}
+
+.hero-container {
+  max-width: 800px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.highlight {
+  color: var(--accent-color);
+}
+
+.description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero {
+    height: auto;
+    padding: 100px 0;
+  }
+}

@@ -1,0 +1,16 @@
+/* App specific global styles if needed */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.copyright {
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  background: var(--bg-secondary);
+  font-weight: 300;
+  margin-top: 20px;
+  color: var(--text-secondary);
+}
