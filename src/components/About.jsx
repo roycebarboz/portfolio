@@ -7,12 +7,12 @@ const About = () => {
 
   const tabData = {
     skills: [
-      { title: 'Programming', content: 'Python, JavaScript, TypeScript, HTML, CSS' },
-      { title: 'Frameworks & Libraries', content: 'React.js, Node.js, Express.js, Next.js' },
-      { title: 'Cloud & DevOps', content: 'AWS (EKS, ECS), Datadog, Docker, Github Actions, Kubernetes' },
-      { title: 'Databases', content: 'PostgreSQL, MySQL, Azure SQL' },
-      { title: 'Tools', content: 'Git, Linux/SSH, Agile (Scrum, Kanban)' },
-      { title: 'AI/ML', content: 'RAG, Embeddings, LLM Pipelines' },
+      { title: 'Generative AI', content: 'OpenAI, Claude Code, RAG, Embeddings, Multi-agent Systems, n8n, LangGraph, Prompt Engineering' },
+      { title: 'Programming Languages', content: 'JavaScript, Python, TypeScript, SQL, Bash, Golang' },
+      { title: 'Frameworks & Libraries', content: 'React.js, Node.js, Express.js, Next.js, FastAPI, REST APIs' },
+      { title: 'Cloud & DevOps', content: 'AWS (EKS, ECS), Docker, GitHub Actions, Kubernetes, Azure, GCP' },
+      { title: 'Databases', content: 'PostgreSQL, MySQL, MongoDB, Supabase' },
+      { title: 'Tools', content: 'Git, Linux/SSH, Agile (Scrum, Kanban), Postman, Microsoft Office, Google Workspace' },
     ],
     education: [
       { title: 'May 2026', content: 'Stevens Institute of Technology - MS in Computer Science\nCourses: Algorithms, DBMS, Concurrent Programming' },
@@ -27,7 +27,7 @@ const About = () => {
     <section id="about" className="about">
       <div className="container about-container">
         <div className="about-col-1">
-          <img src={`${import.meta.env.BASE_URL}images/potrait.png`} alt="Royce Barboz" />
+          <img src={`${import.meta.env.BASE_URL}images/potrait.jpg`} alt="Royce Barboz" />
         </div>
         <div className="about-col-2">
           <motion.h1
@@ -39,8 +39,8 @@ const About = () => {
           </motion.h1>
           <p className="about-text">
             Hi, I'm Royce Barboz, a Master's student in Computer Science at Stevens Institute of Technology.
-            I specialize in building scalable full-stack applications and AI-driven solutions.
-            My technical expertise spans across Cloud Computing (AWS, Kubernetes), DevOps (Datadog, Docker), and Generative AI (RAG, Multi-Agent Systems).
+            I build scalable full-stack applications and AI-driven automation.
+            My stack spans Generative AI (RAG, multi-agent systems, LangGraph), full-stack web (React, Next.js, Node.js, FastAPI), and cloud/DevOps (AWS, Kubernetes, Docker, GitHub Actions).
           </p>
 
           <div className="tab-titles">

@@ -1,38 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './Portfolio.css';
 
 const Portfolio = () => {
   const baseUrl = import.meta.env.BASE_URL;
-  
+  const [showAll, setShowAll] = useState(false);
+
   const projects = [
     {
       title: 'Financial RAG Analyst',
-      description: 'Multi-agent workflow with financial agents using structured function calling. Refactored embedding pipeline to OpenAI text-embedding-3-small.',
+      description: 'Multi-agent workflow (financial, risk, compliance) using structured function-calling, with SEC-filing document caching that cut redundant embedding calls by 90% and query latency from 30s+ to under 2s.',
       image: `${baseUrl}images/work-1.jpg`,
       link: 'https://github.com/sarthakk-3107/rag_analyst'
     },
     {
-      title: 'Inspectify',
-      description: 'NYC Restaurant Health Inspector Dashboard. Scalable ETL pipeline in Node.js processing 289K+ CSV rows into MongoDB.',
-      image: `${baseUrl}images/work-2.jpg`,
-      link: 'https://github.com/roycebarboz/NYC-Restaurant-Health-Inspector-Dashboard'
+      title: 'IGSCF Website',
+      description: 'Production React/Vite web app for a nonprofit with Firebase Auth + Firestore RBAC, CI/CD via GitHub Actions, and Lighthouse-optimized performance — driving a 20% lift in user engagement.',
+      image: `${baseUrl}images/IGSCF.jpg`,
+      link: 'https://igscf.netlify.app/'
     },
     {
-      title: 'F1 Telemetry Dashboard',
-      description: 'End-to-end observability using Datadog APM, RUM, and custom metrics across Flask backend and React frontend.',
-      image: `${baseUrl}images/work-3.jpg`,
-      link: 'https://github.com/keval-som/f1-vision-dashboard'
+      title: 'Internal Notes Generator',
+      description: 'Full-stack automation tool built with Claude Code that parsed Coursedog CSV exports, applied 15+ scheduling logic cases, and submitted formatted event notes via authenticated REST APIs — cutting a multi-hour weekly process to minutes.',
+      image: `${baseUrl}images/coursedog.png`,
+      link: 'https://github.com/roycebarboz/Internal_notes_Automation'
+    },
+    {
+      title: 'Inspectify',
+      description: 'Scalable Node.js ETL pipeline processing 289K+ CSV rows into structured MongoDB documents, grouping inspection records by CAMIS and extracting latest health grades for NYC restaurants.',
+      image: `${baseUrl}images/work-2.jpg`,
+      link: 'https://github.com/roycebarboz/NYC-Restaurant-Health-Inspector-Dashboard'
     }
   ];
+
+  const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
     <section id="portfolio" className="portfolio">
       <div className="container">
         <h1 className="sub-title">My Work</h1>
         <div className="work-list">
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <motion.div
               key={index}
               className="work"
@@ -51,7 +60,9 @@ const Portfolio = () => {
             </motion.div>
           ))}
         </div>
-        <a href="#" className="btn see-more-btn">See More</a>
+        <button className="btn see-more-btn" onClick={() => setShowAll(prev => !prev)}>
+          {showAll ? 'See Less' : 'See More'}
+        </button>
       </div>
     </section>
   );
