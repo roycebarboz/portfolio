@@ -1,35 +1,46 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import RunPlot from './RunPlot';
+import { profile, runs } from '../data';
 import './Hero.css';
 
-const Hero = () => {
+export default function Hero() {
+  const lead = runs[0];
   return (
-    <section id="home" className="hero">
-      <div className="container hero-container">
-        <motion.div 
-          className="hero-content"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="subtitle">Software Developer</p>
-          <h1>
-            Hi, I'm <span className="highlight">Royce Barboz</span>
-            <br />
-            Welcome to my Portfolio
-          </h1>
-          <p className="description">
-            Building scalable web applications and cloud solutions.
-          </p>
-          <div className="cta-buttons">
-             <a href="#portfolio" className="btn">View My Work</a>
-             <a href="#contact" className="btn btn-outline">Contact Me</a>
-          </div>
-        </motion.div>
+    <section className="hero wrap" id="top">
+      <div className="hero__copy">
+        <h1 className="hero__name">
+          Royce
+          <br />
+          Barboz
+        </h1>
+        <p className="hero__claim">{profile.claim}</p>
+        <p className="hero__cred">
+          {profile.title}. {profile.credential}.
+        </p>
+        <div className="hero__actions">
+          <a
+            className="btn btn--solid"
+            href={`${import.meta.env.BASE_URL}images/Royce_AI_Engineer.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Download CV
+          </a>
+          <a className="btn btn--line" href={`mailto:${profile.email}`}>
+            Email me
+          </a>
+        </div>
+      </div>
+      <div className="hero__run">
+        <RunPlot />
+        <dl className="readout">
+          {lead.readout.map(([k, v]) => (
+            <div key={k}>
+              <dt>{k}</dt>
+              <dd>{v}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
-};
-
-export default Hero;
-
+}

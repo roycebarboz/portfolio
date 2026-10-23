@@ -1,28 +1,24 @@
-import React from 'react';
-import Navbar from './components/Navbar';
+import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
-import Experience from './components/Experience';
-import Services from './components/Services';
-import Portfolio from './components/Portfolio';
+import Runs from './components/Runs';
+import Log from './components/Log';
+import Skills from './components/Skills';
 import Contact from './components/Contact';
-import './App.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="app">
-      <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Services />
-      <Portfolio />
+    <>
+      <a className="skip-link" href="#runs">
+        Skip to projects
+      </a>
+      <Header />
+      <main>
+        <Hero />
+        <Runs />
+        <Log />
+        <Skills />
+      </main>
       <Contact />
-      <div className="copyright">
-        <p>Copyright © {new Date().getFullYear()} Royce Barboz. All rights reserved.</p>
-      </div>
-    </div>
+    </>
   );
 }
-
-export default App;

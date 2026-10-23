@@ -1,0 +1,212 @@
+.runs {
+  padding-bottom: clamp(48px, 8vh, 88px);
+}
+
+.run {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(24px, 4vw, 56px);
+  padding-block: clamp(28px, 5vw, 48px);
+  border-bottom: 1px solid var(--ink);
+}
+
+.run:last-child {
+  border-bottom: 0;
+}
+
+.run__name {
+  font-family: var(--font-display);
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 1.8rem + 3vw, 4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.run__stack {
+  text-wrap: pretty;
+  margin-top: 10px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.run__summary {
+  margin-top: 16px;
+  max-width: 44ch;
+}
+
+.run__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 6px;
+  font-family: var(--font-data);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.tally {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tally caption {
+  padding-bottom: 10px;
+  text-align: left;
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.tally th,
+.tally td {
+  padding: 12px 8px 12px 0;
+  border-top: 1px solid var(--ink);
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.tally thead th {
+  border-top: 2px solid var(--ink);
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tally tbody th {
+  font-weight: 600;
+}
+
+.tally__note {
+  display: block;
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.tally .num {
+  text-align: right;
+  padding-right: 0;
+  padding-left: 12px;
+  white-space: nowrap;
+}
+
+.tally tbody .num {
+  font-family: var(--font-display);
+  font-stretch: 85%;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.num--base {
+  color: var(--base);
+}
+
+.num--tuned {
+  color: var(--tuned);
+}
+
+/* Gains are marked with the highlighter, wiped in once per run. */
+.gain {
+  background-image: linear-gradient(var(--hi), var(--hi));
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 100% 100%;
+  padding: 2px 6px;
+  color: var(--ink);
+}
+
+.readout {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.readout > div {
+  flex: 1 1 120px;
+  padding: 10px 14px 10px 0;
+}
+
+.readout dt {
+  font-family: var(--font-data);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.readout dd {
+  font-family: var(--font-display);
+  font-stretch: 75%;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.readout--run {
+  margin-top: 22px;
+}
+
+.run__notes {
+  margin-top: 20px;
+  display: grid;
+  gap: 8px;
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+.run__notes li {
+  text-wrap: pretty;
+}
+
+.run__notes li::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 2px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .run {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .run .gain {
+    background-size: 0% 100%;
+  }
+
+  .run--seen .gain {
+    background-size: 100% 100%;
+    transition: background-size 600ms cubic-bezier(0.16, 1, 0.3, 1) 300ms;
+  }
+}
+
+@media (max-width: 520px) {
+  .tally thead th {
+    font-size: 0.6875rem;
+    letter-spacing: 0.02em;
+  }
+
+  .tally .num {
+    padding-left: 8px;
+  }
+
+  .tally tbody .num {
+    font-size: 1.0625rem;
+  }
+
+  .tally th,
+  .tally td {
+    padding-block: 10px;
+  }
+}
