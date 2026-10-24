@@ -1,96 +1,212 @@
+@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource/b612-mono/400.css';
+@import '@fontsource/b612-mono/700.css';
+
 :root {
-  --bg-color: #0f172a; /* Slate 900 */
-  --text-color: #f8fafc; /* Slate 50 */
-  --text-secondary: #94a3b8; /* Slate 400 */
-  --accent-color: #3b82f6; /* Blue 500 */
-  --accent-hover: #2563eb; /* Blue 600 */
-  --bg-secondary: #1e293b; /* Slate 800 */
-  --border-color: #334155; /* Slate 700 */
-  --container-width: 1200px;
-  --nav-height: 80px;
+  --sheet: #f8f9f7;
+  --ink: #0c0c0c;
+  --ink-soft: #484a45;
+  --rule: #0c0c0c;
+  --hair: #c9cbc5;
+  --base: #d01c28;
+  --tuned: #1347ff;
+  --hi: #d5f23a;
+
+  --font-display: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-body: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-data: 'B612 Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --gutter: clamp(16px, 4vw, 40px);
+  --measure: 66ch;
+  color-scheme: light;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--ink) var(--sheet);
+  scrollbar-width: thin;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  line-height: 1.6;
+  margin: 0;
+  background: var(--sheet);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-stretch: 100%;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  caret-color: var(--ink);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.3s ease;
+p,
+li,
+dd {
+  text-wrap: pretty;
 }
 
-ul {
-  list-style: none;
+::selection {
+  background: var(--hi);
+  color: var(--ink);
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.container {
-  max-width: var(--container-width);
-  margin: 0 auto;
-  padding: 0 20px;
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+  padding: 0;
 }
 
-section {
-  padding: 80px 0;
+ul,
+ol {
+  list-style: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  font-weight: 700;
-  margin-bottom: 1rem;
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
-h1 { font-size: 3.5rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.5rem; }
+a:hover {
+  text-decoration-thickness: 2px;
+}
 
-@media (max-width: 768px) {
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Section titles read as the sheet's ruled headers. */
+.section-title {
+  font-family: var(--font-display);
+  font-stretch: 75%;
+  font-weight: 800;
+  font-size: clamp(1.75rem, 1.2rem + 2.4vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  padding-top: 14px;
+  border-top: 3px solid var(--rule);
+}
+
+.section-lede {
+  margin-top: 12px;
+  max-width: var(--measure);
+  color: var(--ink-soft);
 }
 
 .btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: var(--accent-color);
-  color: white;
-  border-radius: 6px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 22px;
+  border: 2px solid var(--ink);
+  font-family: var(--font-data);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 140ms ease-out, color 140ms ease-out;
 }
 
-.btn:hover {
-  background-color: var(--accent-hover);
+.btn--solid {
+  background: var(--ink);
+  color: var(--sheet);
 }
 
-.btn-outline {
-  background-color: transparent;
-  border: 2px solid var(--accent-color);
-  color: var(--accent-color);
+.btn--solid:hover {
+  background: var(--hi);
+  color: var(--ink);
 }
 
-.btn-outline:hover {
-  background-color: var(--accent-color);
-  color: white;
+.btn--line {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn--line:hover {
+  background: var(--ink);
+  color: var(--sheet);
+}
+
+/* Measured values: tabular figures everywhere data appears. */
+.num,
+.readout dd,
+.tally,
+.log__dates,
+.creds__when {
+  font-variant-numeric: tabular-nums;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: 0;
+  z-index: 20;
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--sheet);
+  font-family: var(--font-data);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transform: translateY(-120%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.001ms !important;
+  }
 }

@@ -3,7 +3,6 @@ logs
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
@@ -35,6 +34,10 @@ dist-ssr
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# AI tooling local state
+.claude/
+.impeccable/
 
 # Playwright verification screenshots (temporary artifacts)
 scripts/screenshots/

@@ -1,0 +1,172 @@
+.plot {
+  border: 2px solid var(--ink);
+  background: var(--sheet);
+}
+
+.plot__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--sheet);
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.plot__body {
+  padding: 8px 12px 4px;
+}
+
+.plot svg {
+  display: block;
+  overflow: visible;
+  font-family: var(--font-data);
+}
+
+.plot__grid {
+  stroke: var(--hair);
+  stroke-width: 1;
+}
+
+.plot__tick {
+  fill: var(--ink-soft);
+  font-size: 11px;
+}
+
+.plot__sep {
+  stroke: var(--ink);
+  stroke-width: 1;
+}
+
+.plot__col {
+  fill: var(--base);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.plot__col--tuned {
+  fill: var(--tuned);
+}
+
+.plot__trace {
+  stroke: var(--ink);
+  stroke-width: 5;
+  stroke-linecap: square;
+}
+
+.plot__dot--base {
+  fill: var(--base);
+}
+
+.plot__dot--tuned {
+  fill: var(--tuned);
+}
+
+.plot__mark {
+  fill: var(--hi);
+}
+
+.plot__val {
+  font-family: var(--font-display);
+  font-stretch: 85%;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.plot__val--base {
+  fill: var(--base);
+}
+
+.plot__val--tuned {
+  fill: var(--tuned);
+}
+
+.plot__val--gain {
+  fill: var(--ink);
+}
+
+.plot__name {
+  fill: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.plot__caption {
+  padding: 8px 12px 10px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+/* The run: each trace is drawn baseline to tuned once, then its result appears. */
+@media (prefers-reduced-motion: no-preference) {
+  .plot .plot__trace {
+    stroke-dasharray: var(--len);
+    stroke-dashoffset: var(--len);
+  }
+
+  .plot .plot__end {
+    opacity: 0;
+  }
+
+  .plot--run .plot__trace {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 900ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--i) * 160ms);
+  }
+
+  .plot--run .plot__end {
+    opacity: 1;
+    transition: opacity 240ms ease-out;
+    transition-delay: calc(700ms + var(--i) * 160ms);
+  }
+}
+
+/* The peak gain is the run's read-out: display scale, never scaled down on small screens. */
+.plot__peak {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding: 8px 12px 10px;
+  border-top: 2px solid var(--ink);
+}
+
+.plot__peak-num {
+  padding: 0 10px;
+  background: var(--hi);
+  font-family: var(--font-display);
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.plot__peak-unit {
+  margin-left: -8px;
+  font-family: var(--font-display);
+  font-stretch: 62%;
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.plot__peak-label {
+  font-family: var(--font-data);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 520px) {
+  .plot__head {
+    flex-wrap: wrap;
+  }
+}
